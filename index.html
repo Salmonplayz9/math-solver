@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Math Solver</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<!-- Floating Circles -->
+<div class="floating-circle c1"></div>
+<div class="floating-circle c2"></div>
+<div class="floating-circle c3"></div>
+<div class="gradient-overlay"></div>
+<canvas id="bgCanvas"></canvas>
+
+<div class="container">
+
+    <!-- Header -->
+    <header>
+        <h1>AI Math Solver</h1>
+        <p>Solve mathematical problems instantly using AI.</p>
+    </header>
+
+    <!-- Solver Card -->
+    <div class="glass-card solver-card">
+        <!-- Equation Display -->
+        <div class="display-wrapper">
+            <div class="display-area" id="equationDisplay"></div>
+        </div>
+
+        <!-- Upload Area -->
+        <div class="upload-area" id="uploadArea">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <div class="upload-text">
+                Drop your image here or <span>click to browse</span>
+            </div>
+            <div class="upload-hint">Supports PNG, JPG, JPEG</div>
+            <div class="file-name" id="fileName">
+                <i class="fas fa-image"></i>
+                <span id="fileNameText"></span>
+            </div>
+            <input type="file" id="imageInput" accept=".png,.jpg,.jpeg">
+        </div>
+
+        <!-- Calculator Grid -->
+        <div class="calculator-grid" id="calcGrid">
+            <button class="calc-btn fn" data-value="sin">sin</button>
+            <button class="calc-btn fn" data-value="cos">cos</button>
+            <button class="calc-btn fn" data-value="tan">tan</button>
+            <button class="calc-btn fn" data-value="log">log</button>
+            <button class="calc-btn fn" data-value="ln">ln</button>
+
+            <button class="calc-btn" data-value="(">(</button>
+            <button class="calc-btn" data-value=")">)</button>
+            <button class="calc-btn" data-value="x²">x²</button>
+            <button class="calc-btn" data-value="√">√</button>
+            <button class="calc-btn" data-value="|x|">|x|</button>
+
+            <button class="calc-btn" data-value="!">!</button>
+            <button class="calc-btn" data-value="π">π</button>
+            <button class="calc-btn" data-value="e">e</button>
+            <button class="calc-btn del" data-action="backspace">⌫</button>
+            <button class="calc-btn ac" data-action="clear">AC</button>
+
+            <button class="calc-btn num" data-value="7">7</button>
+            <button class="calc-btn num" data-value="8">8</button>
+            <button class="calc-btn num" data-value="9">9</button>
+            <button class="calc-btn op" data-value="÷">÷</button>
+            <button class="calc-btn" data-value="%">%</button>
+
+            <button class="calc-btn num" data-value="4">4</button>
+            <button class="calc-btn num" data-value="5">5</button>
+            <button class="calc-btn num" data-value="6">6</button>
+            <button class="calc-btn op" data-value="×">×</button>
+            <button class="calc-btn" data-value="±">±</button>
+
+            <button class="calc-btn num" data-value="1">1</button>
+            <button class="calc-btn num" data-value="2">2</button>
+            <button class="calc-btn num" data-value="3">3</button>
+            <button class="calc-btn op" data-value="−">−</button>
+            <button class="calc-btn" data-value="=">=</button>
+
+            <button class="calc-btn num" data-value="0">0</button>
+            <button class="calc-btn" data-value=".">.</button>
+            <button class="calc-btn op" data-value="+">+</button>
+            <button class="calc-btn" data-value="x">x</button>
+            <button class="calc-btn" data-value="y">y</button>
+        </div>
+
+        <!-- Solve Button -->
+        <button class="solve-btn" id="solveBtn">
+            <span class="btn-text">
+                <i class="fas fa-brain" style="margin-right:6px;"></i>
+                Solve
+            </span>
+            <span class="spinner"></span>
+        </button>
+    </div>
+
+    <!-- Answer Card -->
+    <div class="glass-card answer-card" id="answerCard">
+        <div class="answer-header">
+            <i class="fas fa-lightbulb"></i>
+            <h2>Solution</h2>
+        </div>
+        <div class="answer-body" id="answerBody"></div>
+    </div>
+
+    <!-- Social Section -->
+    <div class="social-section">
+        <p>CONNECT</p>
+        <div class="social-icons">
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/sagar_buildz0?igsh=MXhwNGx0eWJ3dHdlZw==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.fiverr.com/sagar_buildz" target="_blank" aria-label="Fiverr">
+                <img src="https://cdn.simpleicons.org/fiverr/1DBF73" alt="Fiverr" class="social-logo">
+            </a>
+            <a href="#" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a href="#" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+        </div>
+    </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>  
+</body>
+</html>
