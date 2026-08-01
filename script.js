@@ -214,7 +214,7 @@
 
     try {
 
-        const response = await fetch("http://localhost:3000/solve", {
+        const response = await fetch("https://math-solver-api-7t8w.onrender.com/solve", {
 
             method: "POST",
 
